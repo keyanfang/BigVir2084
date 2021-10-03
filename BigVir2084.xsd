@@ -1,1 +1,94 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="BigVir2084" type="BVType"/>
+    <xs:complexType name="BVType">
+        <xs:sequence>
+            <xs:element ref="Utilisateur_Personne" minOccurs="0"/>
+            <xs:element ref="Utilisateur_Groupe" minOccurs="0"/>
+            <xs:element ref="antécédent"/>
+            <xs:element ref="historique"/>
+            <xs:element ref="statut"/>
+
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="Utilisateur_Personne" type="PersonneType"/>
+    <xs:complexType name="PersonneType">
+        <xs:sequence>
+            <xs:element name="type" type="type_personne"/>
+            <xs:element name="nom" type="xs:string"/>
+            <xs:element name="age" type="xs:integer"/>
+            <xs:element name="pois" type="xs:integer"/>
+            <xs:element ref="antécédent" minOccurs="0"/>
+            <xs:element ref="historique" minOccurs="0"/>
+            <xs:element name="Statut" type="StatType"/>
+            <xs:element ref="Utilisateur_Personne" minOccurs="0"/>
+        </xs:sequence>
+        <xs:attribute name ="id" type="xs:integer"/>
+    </xs:complexType>
+    <xs:simpleType name="type_personne">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="citoyen"/>
+            <xs:enumeration value="medecin"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="type_groupe">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="observatoire"/>
+            <xs:enumeration value="agence"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:element name="Utilisateur_Groupe" type="GroupeType"/>
+    <xs:complexType name='GroupeType'>
+        <xs:sequence>
+            <xs:element name="type" type="type_groupe"/>
+            <xs:element name="nom" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name ="id" type="xs:integer"/>
+    </xs:complexType>
+
+    <xs:element name="antécédent" type="antType"/>
+    <xs:complexType name="antType">
+        <xs:sequence>
+            <xs:element name='consultation' type='xs:string'/>
+            <xs:element name='hospitalisation' type='xs:string'/>
+            <xs:element name='résultat' type='xs:string'/>
+        </xs:sequence>
+        <xs:attribute name ="id" type="xs:integer"/>
+    </xs:complexType>
+
+    <xs:element name="historique" type="hisType"/>
+    <xs:complexType name='hisType'>
+        <xs:sequence>
+            <xs:element name='date' type='xs:string'/>
+            <xs:element name='lieu' type='xs:string'/>
+            <xs:element name='numInfect' type='xs:integer'/>
+        </xs:sequence>
+        <xs:attribute name ="id" type="xs:integer"/>
+    </xs:complexType>
+
+    <xs:element name = 'statut' type= 'statutType'/>
+    <xs:complexType name="statutType">
+        <xs:sequence>
+            <xs:element name ="infection" type="xs:boolean"/>
+            <xs:element name ="immunisation" type="xs:boolean"/>
+            <xs:element name ="vaccination" type="xs:boolean"/>
+        </xs:sequence>
+        <xs:attribute name ="id" type="xs:integer"/>
+    </xs:complexType>
+
+    <xs:complexType name='StatType'>
+        <xs:sequence>
+            <xs:element ref="stat"/>
+        </xs:sequence>
+
+    </xs:complexType>
+
+    <xs:element name = 'stat' type= 'statType'/>
+    <xs:complexType name="statType">
+        <xs:attribute name ="id" type="xs:integer"/>
+    </xs:complexType>
+
+
+</xs:schema>

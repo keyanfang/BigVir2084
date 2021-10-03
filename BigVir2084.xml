@@ -1,19 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <BigVir2084 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:noNamespaceSchemaLocation="BigVir2084.xsd">
-    <PersonalInfo>
-        <name>a</name>
+    <Utilisateur_Personne id="1">
+        <type>citoyen</type>
+        <nom>Jean</nom>
         <age>18</age>
-        <weight>50kg</weight>
+        <pois>50</pois>
+        <Statut>
+            <stat id="1"/>
+        </Statut>
+
+
+
+
+    </Utilisateur_Personne>
+
+    <Utilisateur_Groupe id="1">
+        <type>agence</type>
+        <nom>gov</nom>
+    </Utilisateur_Groupe>
+
+    <antécédent id="1">
         <consultation>none</consultation>
         <hospitalisation>none</hospitalisation>
-        <labResult>negative</labResult>
-        <status>healthy</status>
-        <immunisation>immune</immunisation>
-        <vaccination>vaccinated</vaccination>
-        <socialRelation>none</socialRelation>
-        <socialHistory>none</socialHistory>
+        <résultat>n</résultat>
+    </antécédent>
 
-    </PersonalInfo>
+    <historique>
+        <date>1er oct</date>
+        <lieu>stade</lieu>
+        <numInfect>0</numInfect>
+    </historique>
+
+    <statut id="1">
+        <infection>false</infection>
+        <immunisation>false</immunisation>
+        <vaccination>false</vaccination>
+    </statut>
 
 </BigVir2084>
