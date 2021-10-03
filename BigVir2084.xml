@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BigVir2084 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="BigVir2084.xsd">
+    <PersonalInfo>
+        <name>a</name>
+        <age>18</age>
+        <weight>50kg</weight>
+        <consultation>none</consultation>
+        <hospitalisation>none</hospitalisation>
+        <labResult>negative</labResult>
+        <status>healthy</status>
+        <immunisation>immune</immunisation>
+        <vaccination>vaccinated</vaccination>
+        <socialRelation>none</socialRelation>
+        <socialHistory>none</socialHistory>
+
+    </PersonalInfo>
+
+</BigVir2084>
