@@ -1,34 +1,96 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
-    <xs:element name="BigVir2084" type="BVType"/>
-    <xs:complexType name="BVType">
+    <xs:element name="BigVir2084" >
+    <xs:complexType>
         <xs:sequence>
-            <xs:element ref="Utilisateur_Personne" minOccurs="0"/>
-            <xs:element ref="Utilisateur_Groupe" minOccurs="0"/>
-            <xs:element ref="antécédent"/>
-            <xs:element ref="historique"/>
-            <xs:element ref="statut"/>
-
+            <xs:element ref="Utilisateur_Personne" maxOccurs="unbounded"/>
+            <xs:element ref="Utilisateur_Groupe" maxOccurs="unbounded"/>
+            <xs:element ref="antécédent_medical" maxOccurs="unbounded"/> <!--病史-->
+            <xs:element ref="historique_social" maxOccurs="unbounded"/><!--场所轨迹-->
+            <xs:element ref="statut" maxOccurs="unbounded"/>
+<!--            <xs:element ref="relation_social" maxOccurs="unbounded"/>-->
         </xs:sequence>
     </xs:complexType>
+
+    <xs:key name="antécédentKey">
+        <xs:selector xpath="./antécédent_medical"/>
+        <xs:field xpath="@id"/>
+    </xs:key>
+
+    <xs:keyref name="antécédentKeyRef" refer="antécédentKey">
+        <xs:selector xpath=".//Utilisateur_Personne/antécédent_medical"/>
+        <xs:field xpath="@antécédent_medical"/>
+    </xs:keyref>
+
+    <xs:key name="histoireKey">
+        <xs:selector xpath="./historique_social"/>
+        <xs:field xpath="@id" />
+    </xs:key>
+
+    <xs:keyref name="histoireKeyRef" refer="histoireKey">
+        <xs:selector xpath=".//Utilisateur_Personne/historique_social"/>
+        <xs:field xpath="@historique_social"/>
+    </xs:keyref>
+
+    <xs:key name="statutKey">
+        <xs:selector xpath="./statut"/>
+        <xs:field xpath="@id" />
+    </xs:key>
+
+    <xs:keyref name="statutKeyRef" refer="statutKey">
+        <xs:selector xpath=".//Utilisateur_Personne/statut"/>
+        <xs:field xpath="@statut"/>
+    </xs:keyref>
+
+<!--    <xs:key name="relation_socialKey">-->
+<!--        <xs:selector xpath="./relation_social"/>-->
+<!--        <xs:field xpath="@id" />-->
+<!--    </xs:key>-->
+
+<!--    <xs:keyref name="relation_socialKeyRef" refer="relation_socialKey">-->
+<!--        <xs:selector xpath=".//Utilisateur_Personne/relation_social"/>-->
+<!--        <xs:field xpath="@relation_social"/>-->
+<!--    </xs:keyref>-->
+
+  </xs:element>
+
     <xs:element name="Utilisateur_Personne" type="PersonneType"/>
     <xs:complexType name="PersonneType">
         <xs:sequence>
             <xs:element name="type" type="type_personne"/>
             <xs:element name="nom" type="xs:string"/>
-            <xs:element name="age" type="xs:integer"/>
-            <xs:element name="pois" type="xs:integer"/>
-            <xs:element ref="antécédent" minOccurs="0"/>
-            <xs:element ref="historique" minOccurs="0"/>
-            <xs:element name="Statut" type="StatType"/>
-            <xs:element ref="Utilisateur_Personne" minOccurs="0"/>
+            <xs:element name="age" type="xs:nonNegativeInteger"/>
+            <xs:element name="pois" type="xs:decimal"/>
+            <xs:element name="antécédent_medical" minOccurs="0">
+                <xs:complexType>
+                    <xs:attribute name="antécédent_medical" type="xs:string"/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="historique_social" minOccurs="0">
+                <xs:complexType>
+                     <xs:attribute name="historique_social" type="xs:string"/>
+                </xs:complexType>
+            </xs:element>
+
+            <xs:element name="statut" minOccurs="0">
+                <xs:complexType>
+                    <xs:attribute name="statut" type="xs:string"/>
+                </xs:complexType>
+            </xs:element>
+
+            <xs:element name="relation_social" minOccurs="0">
+                <xs:complexType>
+                    <xs:attribute name="relation_social" type="xs:string"/>
+                </xs:complexType>
+            </xs:element>
         </xs:sequence>
         <xs:attribute name ="id" type="xs:integer"/>
     </xs:complexType>
+
     <xs:simpleType name="type_personne">
         <xs:restriction base="xs:string">
             <xs:enumeration value="citoyen"/>
-            <xs:enumeration value="medecin"/>
+            <xs:enumeration value="medécin"/>
         </xs:restriction>
     </xs:simpleType>
 
@@ -48,17 +110,17 @@
         <xs:attribute name ="id" type="xs:integer"/>
     </xs:complexType>
 
-    <xs:element name="antécédent" type="antType"/>
+    <xs:element name="antécédent_medical" type="antType"/>
     <xs:complexType name="antType">
         <xs:sequence>
             <xs:element name='consultation' type='xs:string'/>
             <xs:element name='hospitalisation' type='xs:string'/>
-            <xs:element name='résultat' type='xs:string'/>
+            <xs:element name='résultat' type='xs:string'/><!--加限制 negative/positive-->
         </xs:sequence>
         <xs:attribute name ="id" type="xs:integer"/>
     </xs:complexType>
 
-    <xs:element name="historique" type="hisType"/>
+    <xs:element name="historique_social" type="hisType"/>
     <xs:complexType name='hisType'>
         <xs:sequence>
             <xs:element name='date' type='xs:string'/>
@@ -78,17 +140,24 @@
         <xs:attribute name ="id" type="xs:integer"/>
     </xs:complexType>
 
-    <xs:complexType name='StatType'>
-        <xs:sequence>
-            <xs:element ref="stat"/>
-        </xs:sequence>
 
-    </xs:complexType>
-
-    <xs:element name = 'stat' type= 'statType'/>
-    <xs:complexType name="statType">
-        <xs:attribute name ="id" type="xs:integer"/>
-    </xs:complexType>
-
+<!--    <xs:element name="relation_social">-->
+<!--        <xs:complexType>-->
+<!--            <xs:sequence>-->
+<!--                <xs:element name="Utilisateur_Personne" maxOccurs="unbounded">-->
+<!--                    <xs:complexType>-->
+<!--                        <xs:attribute name="Utilisateur_Personne" type="xs:string"/>-->
+<!--                    </xs:complexType>-->
+<!--                </xs:element>-->
+<!--            </xs:sequence>-->
+<!--        </xs:complexType>-->
+<!--    </xs:element>-->
+    <xs:element name="relation_social" >
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="Utilisateur_Personne" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element >
 
 </xs:schema>

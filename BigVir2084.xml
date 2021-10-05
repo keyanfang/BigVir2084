@@ -5,34 +5,31 @@
         <type>citoyen</type>
         <nom>Jean</nom>
         <age>18</age>
-        <pois>50</pois>
-        <Statut>
-            <stat id="1"/>
-        </Statut>
-
-
-
+        <pois>50.5</pois>
+        <antécédent_medical antécédent_medical="1"/>
+        <historique_social historique_social="2"/>
+        <statut statut="3"/>
 
     </Utilisateur_Personne>
 
-    <Utilisateur_Groupe id="1">
+    <Utilisateur_Groupe id="6">
         <type>agence</type>
         <nom>gov</nom>
     </Utilisateur_Groupe>
 
-    <antécédent id="1">
-        <consultation>none</consultation>
-        <hospitalisation>none</hospitalisation>
-        <résultat>n</résultat>
-    </antécédent>
+    <antécédent_medical id="1">
+        <consultation>en bonne santé</consultation>
+        <hospitalisation>N'ont pas été hospitalisés au cour de la dernière année</hospitalisation>
+        <résultat>Negativé</résultat>
+    </antécédent_medical>
 
-    <historique>
-        <date>1er oct</date>
-        <lieu>stade</lieu>
-        <numInfect>0</numInfect>
-    </historique>
+    <historique_social id="2">
+        <date>1998-05-20</date>
+        <lieu>Antibes</lieu>
+        <numInfect>8</numInfect>
+    </historique_social>
 
-    <statut id="1">
+    <statut id="3">
         <infection>false</infection>
         <immunisation>false</immunisation>
         <vaccination>false</vaccination>
