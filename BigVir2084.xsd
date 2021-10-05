@@ -61,7 +61,7 @@
             <xs:element name="nom" type="xs:string"/>
             <xs:element name="age" type="xs:nonNegativeInteger"/>
             <xs:element name="pois" type="xs:decimal"/>
-            <xs:element name="antécédent_medical" minOccurs="0">
+            <xs:element name="antécédent_medical" minOccurs="0"><!--是否需要零次设定-->
                 <xs:complexType>
                     <xs:attribute name="antécédent_medical" type="xs:string"/>
                 </xs:complexType>
@@ -113,9 +113,27 @@
     <xs:element name="antécédent_medical" type="antType"/>
     <xs:complexType name="antType">
         <xs:sequence>
-            <xs:element name='consultation' type='xs:string'/>
-            <xs:element name='hospitalisation' type='xs:string'/>
-            <xs:element name='résultat' type='xs:string'/><!--加限制 negative/positive-->
+            <xs:element name='consultation' >
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="100"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name='hospitalisation'>
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="100"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name='résultat'>
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="Négative|Positive"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element><!--加限制 negative/positive-->
         </xs:sequence>
         <xs:attribute name ="id" type="xs:integer"/>
     </xs:complexType>
@@ -123,9 +141,15 @@
     <xs:element name="historique_social" type="hisType"/>
     <xs:complexType name='hisType'>
         <xs:sequence>
-            <xs:element name='date' type='xs:string'/>
-            <xs:element name='lieu' type='xs:string'/>
-            <xs:element name='numInfect' type='xs:integer'/>
+            <xs:element name='date' type='xs:date'/>
+            <xs:element name='lieu' >
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:whiteSpace value="collapse"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name='numInfect' type='xs:nonNegativeInteger'/>
         </xs:sequence>
         <xs:attribute name ="id" type="xs:integer"/>
     </xs:complexType>
