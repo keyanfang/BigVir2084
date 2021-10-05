@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <BigVir2084 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:noNamespaceSchemaLocation="BigVir2084.xsd">
+            xsi:noNamespaceSchemaLocation="BigVir2084.xsd">
     <Utilisateur_Personne id="1">
         <type>citoyen</type>
         <nom>Jean</nom>
@@ -9,7 +9,18 @@
         <antécédent_medical antécédent_medical="1"/>
         <historique_social historique_social="2"/>
         <statut statut="3"/>
+        <relation_social relation_social="2"/>
+    </Utilisateur_Personne>
 
+    <Utilisateur_Personne id="2">
+        <type>medécin</type>
+        <nom>Marie</nom>
+        <age>33</age>
+        <pois>50.5</pois>
+        <antécédent_medical antécédent_medical="1"/>
+        <historique_social historique_social="2"/>
+        <statut statut="3"/>
+        <relation_social relation_social="1"/>
     </Utilisateur_Personne>
 
     <Utilisateur_Groupe id="6">
@@ -20,7 +31,7 @@
     <antécédent_medical id="1">
         <consultation>en bonne santé</consultation>
         <hospitalisation>N'ont pas été hospitalisés au cour de la dernière année</hospitalisation>
-        <résultat>Negativé</résultat>
+        <résultat>Négative</résultat>
     </antécédent_medical>
 
     <historique_social id="2">
@@ -34,5 +45,16 @@
         <immunisation>false</immunisation>
         <vaccination>false</vaccination>
     </statut>
+
+    <relation_social id="1">
+    <Personne id="2"/>
+
+    </relation_social>
+
+    <relation_social id="2">
+        <Personne id="1"/>
+    </relation_social>
+
+
 
 </BigVir2084>
