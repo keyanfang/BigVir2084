@@ -6,9 +6,9 @@
         <gender>homme</gender>
         <age>18</age>
         <pois>50.5</pois>
-        <antécédent_medical antécédent_medical="1455"/>
-        <historique_social historique_social="2300"/>
-        <statut statut="3456"/>
+        <antécédent_medical antécédent_medical="AM1450"/>
+        <historique_social historique_social="HS2300"/>
+        <statut statut="ST0001"/>
         <relation_social>
             <personne personne="02">mom</personne>
             <personne personne="07">papa</personne>
@@ -22,9 +22,9 @@
         <gender>femme</gender>
         <age>48</age>
         <pois>61.8</pois>
-        <antécédent_medical antécédent_medical="1455"/>
-        <historique_social historique_social="2300"/>
-        <statut statut="3456"/>
+        <antécédent_medical antécédent_medical="AM1453"/>
+        <historique_social historique_social="HS2300"/>
+        <statut statut="ST0001"/>
         <relation_social>
             <personne personne="01">fils</personne>
             <personne personne="07">mari</personne>
@@ -38,9 +38,9 @@
         <gender>homme</gender>
         <age>9</age>
         <pois>40.5</pois>
-        <antécédent_medical antécédent_medical="1455"/>
-        <historique_social historique_social="230"/>
-        <statut statut="3456"/>
+        <antécédent_medical antécédent_medical="AM1459"/>
+        <historique_social historique_social="HS2300"/>
+        <statut statut="ST0002"/>
         <relation_social>
             <personne personne="04">frère</personne>
             <personne personne="05">mère</personne>
@@ -55,9 +55,9 @@
         <gender>homme</gender>
         <age>15</age>
         <pois>58.5</pois>
-        <antécédent_medical antécédent_medical="1455"/>
-        <historique_social historique_social="2300"/>
-        <statut statut="3456"/>
+        <antécédent_medical antécédent_medical="AM1455"/>
+        <historique_social historique_social="HS2300"/>
+        <statut statut="ST0004"/>
         <relation_social>
             <personne personne="03">frère</personne>
             <personne personne="05">mère</personne>
@@ -72,9 +72,9 @@
         <gender>femme</gender>
         <age>37</age>
         <pois>57.4</pois>
-        <antécédent_medical antécédent_medical="1455"/>
-        <historique_social historique_social="2300"/>
-        <statut statut="3456"/>
+        <antécédent_medical antécédent_medical="AM1455"/>
+        <historique_social historique_social="SH2300"/>
+        <statut statut="ST0006"/>
         <relation_social>
             <personne personne="03">mom</personne>
             <personne personne="04">mom</personne>
@@ -89,9 +89,9 @@
         <gender>femme</gender>
         <age>69</age>
         <pois>63.2</pois>
-        <antécédent_medical antécédent_medical="1455"/>
-        <historique_social historique_social="2300"/>
-        <statut statut="3456"/>
+        <antécédent_medical antécédent_medical="AM1455"/>
+        <historique_social historique_social="HS2300"/>
+        <statut statut="ST0008"/>
         <visibilité>true</visibilité>
         <modification>false</modification>
     </citoyen>
@@ -101,9 +101,9 @@
         <gender>homme</gender>
         <age>52</age>
         <pois>80.0</pois>
-        <antécédent_medical antécédent_medical="1455"/>
-        <historique_social historique_social="2300"/>
-        <statut statut="3456"/>
+        <antécédent_medical antécédent_medical="AM1455"/>
+        <historique_social historique_social="HS2300"/>
+        <statut statut="ST0006"/>
         <relation_social>
             <personne personne="01">fils</personne>
             <personne personne="02">femme</personne>
@@ -117,9 +117,9 @@
         <gender>femme</gender>
         <age>18</age>
         <pois>50.5</pois>
-        <antécédent_medical antécédent_medical="1455"/>
-        <historique_social historique_social="2300"/>
-        <statut statut="3456"/>
+        <antécédent_medical antécédent_medical="AM1455"/>
+        <historique_social historique_social="HS2300"/>
+        <statut statut="ST0003"/>
         <relation_social>
             <personne personne="A120">mom</personne>
         </relation_social>
@@ -128,14 +128,14 @@
     </citoyen>
 
 
-    <medécin id="A120">
+    <medécin id="M120">
         <nom>Alice</nom>
         <gender>femme</gender>
         <age>35</age>
         <pois>68.3</pois>
-        <antécédent_medical antécédent_medical="1455"/>
-        <historique_social historique_social="2300"/>
-        <statut statut="3456"/>
+        <antécédent_medical antécédent_medical="AM1452"/>
+        <historique_social historique_social="HS2300"/>
+        <statut statut="ST0002"/>
         <relation_social>
             <personne personne="08">fille</personne>
             <personne personne="A130">mari</personne>
@@ -144,14 +144,14 @@
         <modification>true</modification>
     </medécin>
 
-    <medécin id="A130">
+    <medécin id="M130">
         <nom>Louis</nom>
         <gender>homme</gender>
         <age>46</age>
         <pois>75.3</pois>
-        <antécédent_medical antécédent_medical="1455"/>
-        <historique_social historique_social="2300"/>
-        <statut statut="3456"/>
+        <antécédent_medical antécédent_medical="AM1454"/>
+        <historique_social historique_social="HS2300"/>
+        <statut statut="ST0003"/>
         <relation_social>
             <personne personne="08">fille</personne>
             <personne personne="A120">femme</personne>
@@ -179,15 +179,15 @@
     </observatoire>
 
     <observatoire id="B04">
-    <nom>observatoire du province cote d'azur</nom>
-    <visibilité>true</visibilité>
-    <modification>false</modification>
+        <nom>observatoire du province cote d'azur</nom>
+        <visibilité>true</visibilité>
+        <modification>false</modification>
     </observatoire>
 
     <observatoire id="B05">
-    <nom>observatoire du province cote d'azur</nom>
-    <visibilité>true</visibilité>
-    <modification>false</modification>
+        <nom>observatoire du province cote d'azur</nom>
+        <visibilité>true</visibilité>
+        <modification>false</modification>
     </observatoire>
 
     <observatoire id="B06">
@@ -221,30 +221,234 @@
     </observatoire>
 
 
-    <agence id="04">
-        <nom>government du Province cote d'zaur</nom>
+    <agence id="A01">
+        <nom>agence gouvernmental du Province cote d'zaur</nom>
         <visibilité>true</visibilité>
         <modification>true</modification>
     </agence>
 
-    <antécédent_medical id="1455">
+    <agence id="A02">
+        <nom>agence gouvernmental de Paris</nom>
+        <visibilité>true</visibilité>
+        <modification>true</modification>
+    </agence>
+
+    <agence id="A03">
+        <nom>agence gouvernmental de Canne</nom>
+        <visibilité>true</visibilité>
+        <modification>true</modification>
+    </agence>
+
+    <agence id="A04">
+        <nom>agence gouvernmental de Lyon</nom>
+        <visibilité>true</visibilité>
+        <modification>true</modification>
+    </agence>
+
+    <agence id="A05">
+        <nom>agence gouvernmental de Nice</nom>
+        <visibilité>true</visibilité>
+        <modification>true</modification>
+    </agence>
+
+    <agence id="A06">
+        <nom>agence gouvernmental de Marseille</nom>
+        <visibilité>true</visibilité>
+        <modification>true</modification>
+    </agence>
+
+    <agence id="A07">
+        <nom>agence gouvernmental de Bordeau</nom>
+        <visibilité>true</visibilité>
+        <modification>true</modification>
+    </agence>
+
+    <agence id="A08">
+        <nom>agence gouvernmental de Lille</nom>
+        <visibilité>true</visibilité>
+        <modification>true</modification>
+    </agence>
+
+    <agence id="A09">
+        <nom>agence gouvernmental de Dijon</nom>
+        <visibilité>true</visibilité>
+        <modification>true</modification>
+    </agence>
+
+    <agence id="A10">
+        <nom>agence gouvernmental de Antibes</nom>
+        <visibilité>true</visibilité>
+        <modification>true</modification>
+    </agence>
+
+    <antécédent_medical id="AM1450">
+        <consultation>en bonne santé</consultation>
+        <hospitalisation>1 fois hospitalisé au cour de la dernière année</hospitalisation>
+        <résultat>Négative</résultat>
+    </antécédent_medical>
+
+    <antécédent_medical id="AM1451">
+        <consultation>en bonne santé</consultation>
+        <hospitalisation>2 fois hospitalisés au cour de la dernière année</hospitalisation>
+        <résultat>Négative</résultat>
+    </antécédent_medical>
+
+    <antécédent_medical id="AM1452">
+        <consultation>en bonne santé</consultation>
+        <hospitalisation>1 fois hospitalisés au cour de la dernière année</hospitalisation>
+        <résultat>Positive</résultat>
+    </antécédent_medical>
+
+    <antécédent_medical id="AM1453">
+        <consultation>hospitalisé</consultation>
+        <hospitalisation>1 fois hospitalisés au cour de la dernière année</hospitalisation>
+        <résultat>Positive</résultat>
+    </antécédent_medical>
+
+    <antécédent_medical id="AM1454">
+        <consultation>hospitalise</consultation>
+        <hospitalisation>1 fois hospitalisés au cour de la dernière année</hospitalisation>
+        <résultat>Positive</résultat>
+    </antécédent_medical>
+
+    <antécédent_medical id="AM1455">
         <consultation>en bonne santé</consultation>
         <hospitalisation>N'ont pas été hospitalisés au cour de la dernière année</hospitalisation>
         <résultat>Négative</résultat>
     </antécédent_medical>
 
-    <historique_social id="230">
+    <antécédent_medical id="AM1456">
+        <consultation>en bonne santé</consultation>
+        <hospitalisation>N'ont pas été hospitalisés au cour de la dernière année</hospitalisation>
+        <résultat>Positive</résultat>
+    </antécédent_medical>
+
+    <antécédent_medical id="AM1457">
+        <consultation>malade</consultation>
+        <hospitalisation>N'ont pas été hospitalisés au cour de la dernière année</hospitalisation>
+        <résultat>Positive</résultat>
+    </antécédent_medical>
+
+    <antécédent_medical id="AM1458">
+        <consultation>malade</consultation>
+        <hospitalisation>10 fois hospitalisés au cour de la dernière année</hospitalisation>
+        <résultat>Positive</résultat>
+    </antécédent_medical>
+
+    <antécédent_medical id="AM1459">
+        <consultation>malade</consultation>
+        <hospitalisation>N'ont pas été hospitalisés au cour de la dernière année</hospitalisation>
+        <résultat>Négative</résultat>
+    </antécédent_medical>
+
+    <historique_social id="HS2300">
         <date>1998-05-20</date>
         <lieu>Antibes</lieu>
-        <numInfect>8</numInfect>
+        <numInfect>0</numInfect>
     </historique_social>
 
-    <statut id="3456">
+    <historique_social id="HS2301">
+        <date>1998-05-21</date>
+        <lieu>Nice</lieu>
+        <numInfect>0</numInfect>
+    </historique_social>
+
+    <historique_social id="HS2302">
+        <date>2000-10-21</date>
+        <lieu>Nice</lieu>
+        <numInfect>0</numInfect>
+    </historique_social>
+
+    <historique_social id="HS2303">
+        <date>2020-05-21</date>
+        <lieu>Paris</lieu>
+        <numInfect>18</numInfect>
+    </historique_social>
+
+    <historique_social id="HS2304">
+        <date>2021-05-21</date>
+        <lieu>Nice</lieu>
+        <numInfect>4</numInfect>
+    </historique_social>
+
+    <historique_social id="HS2305">
+        <date>2021-06-11</date>
+        <lieu>Lyon</lieu>
+        <numInfect>0</numInfect>
+    </historique_social>
+
+    <historique_social id="HS2306">
+        <date>2021-01-01</date>
+        <lieu>Nice</lieu>
+        <numInfect>1</numInfect>
+    </historique_social>
+
+    <historique_social id="HS2307">
+        <date>2007-08-22</date>
+        <lieu>Nice</lieu>
+        <numInfect>0</numInfect>
+    </historique_social>
+
+    <historique_social id="HS2308">
+        <date>2014-05-09</date>
+        <lieu>Antibes</lieu>
+        <numInfect>0</numInfect>
+    </historique_social>
+
+    <historique_social id="HS2309">
+        <date>2018-05-21</date>
+        <lieu>Cannes</lieu>
+        <numInfect>0</numInfect>
+    </historique_social>
+
+
+    <statut id="ST0001">
         <infection>false</infection>
         <immunisation>false</immunisation>
         <vaccination>false</vaccination>
     </statut>
 
+    <statut id="ST0002">
+        <infection>true</infection>
+        <immunisation>false</immunisation>
+        <vaccination>false</vaccination>
+    </statut>
+
+    <statut id="ST0003">
+        <infection>false</infection>
+        <immunisation>true</immunisation>
+        <vaccination>false</vaccination>
+    </statut>
+
+    <statut id="ST0004">
+        <infection>false</infection>
+        <immunisation>false</immunisation>
+        <vaccination>true</vaccination>
+    </statut>
+
+    <statut id="ST0005">
+        <infection>true</infection>
+        <immunisation>true</immunisation>
+        <vaccination>false</vaccination>
+    </statut>
+
+    <statut id="ST0006">
+        <infection>true</infection>
+        <immunisation>false</immunisation>
+        <vaccination>true</vaccination>
+    </statut>
+
+    <statut id="ST0007">
+        <infection>false</infection>
+        <immunisation>true</immunisation>
+        <vaccination>true</vaccination>
+    </statut>
+
+    <statut id="ST0008">
+        <infection>true</infection>
+        <immunisation>true</immunisation>
+        <vaccination>true</vaccination>
+    </statut>
 
 
 </BigVir2084>
