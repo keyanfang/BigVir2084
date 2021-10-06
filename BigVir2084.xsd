@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:annotation>
+        <xs:documentation xml:lang="fr">
+            C'est le document de la base de donné du projet BigVir2084.
+        </xs:documentation>
+    </xs:annotation>
+
     <xs:element name="BigVir2084" >
     <xs:complexType>
         <xs:sequence>
@@ -14,115 +20,121 @@
     </xs:complexType>
 
     <xs:key name="antécédentKey">
-        <xs:selector xpath="./antécédent_medical"/>
+        <xs:selector xpath="antécédent_medical"/>
         <xs:field xpath="@id"/>
     </xs:key>
 
     <xs:keyref name="antécédentKeyRef" refer="antécédentKey">
-        <xs:selector xpath="./antécédent_medical"/>
+        <xs:selector xpath="./citoyen/antécédent_medical"/>
         <xs:field xpath="@antécédent_medical"/>
     </xs:keyref>
 
     <xs:key name="histoireKey">
-        <xs:selector xpath="./historique_social"/>
-        <xs:field xpath="@id" />
+        <xs:selector xpath="historique_social"/>
+        <xs:field xpath="@id"/>
     </xs:key>
 
     <xs:keyref name="histoireKeyRef" refer="histoireKey">
-        <xs:selector xpath="./historique_social"/>
+        <xs:selector xpath="./citoyen/historique_social"/>
         <xs:field xpath="@historique_social"/>
     </xs:keyref>
 
+
     <xs:key name="statutKey">
-        <xs:selector xpath="./statut"/>
+        <xs:selector xpath="statut"/>
         <xs:field xpath="@id" />
     </xs:key>
 
     <xs:keyref name="statutKeyRef" refer="statutKey">
-        <xs:selector xpath="./statut"/>
+        <xs:selector xpath="./citoyen/statut"/>
         <xs:field xpath="@statut"/>
     </xs:keyref>
 
-    <xs:key name="relation_socialKey">
+   <xs:key name="relationKey">
+       <xs:selector xpath="./citoyen"/>
+       <xs:field xpath="@id" />
+   </xs:key>
+
+    <xs:keyref name="relationKeyRef" refer="relationKey">
+        <xs:selector xpath="./citoyen/relation_social/personne"/>
+        <xs:field xpath="@personne"/>
+    </xs:keyref>
+
+    <xs:key name="citoyenKey">
         <xs:selector xpath="./citoyen"/>
         <xs:field xpath="@id" />
     </xs:key>
 
-    <xs:keyref name="relation_socialKeyRef" refer="relation_socialKey">
-        <xs:selector xpath="./citoyen/persongroup/relation_social/personne"/>
-        <xs:field xpath="@personne"/>
+    <xs:keyref name="citoyenRef" refer="citoyenKey">
+        <xs:selector xpath="./medécin/citoyen"/>
+        <xs:field xpath="@citoyen"/>
     </xs:keyref>
-
   </xs:element>
 
-    <xs:group name="persongroup">
-        <xs:sequence>
-            <xs:element name="nom" type="xs:string"/>
-            <xs:element name="gender" type="xs:string">
-            <xs:simpleType>
-                <xs:restriction base="xs:string">
-                    <xs:pattern value="homme|femme"/>
-                </xs:restriction>
-            </xs:simpleType>
-            </xs:element>
-            <xs:element name="age" type="xs:nonNegativeInteger"/>
-            <xs:element name="pois" type="xs:decimal"/>
-            <xs:element name="antécédent_medical" minOccurs="0"><!--是否需要零次设定-->
-                <xs:complexType>
-                    <xs:attribute name="antécédent_medical" type="xs:string"/>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="historique_social" minOccurs="0">
-                <xs:complexType>
-                    <xs:attribute name="historique_social" type="xs:string"/>
-                </xs:complexType>
-            </xs:element>
 
-            <xs:element name="statut" minOccurs="0">
-                <xs:complexType>
-                    <xs:attribute name="statut" type="xs:string"/>
-                </xs:complexType>
-            </xs:element>
+    <xs:element name="citoyen">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="nom" type="xs:string"/>
+                <xs:element name="gender" type="xs:string">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:pattern value="homme|femme"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+                <xs:element name="age" type="xs:nonNegativeInteger"/>
+                <xs:element name="pois" type="xs:decimal"/>
+                <xs:element name="antécédent_medical" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:attribute name="antécédent_medical" type="xs:string"/>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="historique_social" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:attribute name="historique_social" type="xs:string"/>
+                    </xs:complexType>
+                </xs:element>
 
-            <xs:element name="relation_social" minOccurs="0">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element name="personne"  maxOccurs="unbounded">
-                            <xs:complexType>
-                                <xs:simpleContent>
-                                    <xs:extension base="xs:string">
-                                <xs:attribute name="personne" type="xs:string"/>
-                                    </xs:extension>
-                                </xs:simpleContent>
-                            </xs:complexType>
-                        </xs:element>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
+                <xs:element name="statut" minOccurs="0">
+                    <xs:complexType>
+                        <xs:attribute name="statut" type="xs:string"/>
+                    </xs:complexType>
+                </xs:element>
 
-            <xs:element name="visibilité" type="xs:boolean" fixed="true"/>
-        </xs:sequence>
-    </xs:group>
+                <xs:element name="relation_social" minOccurs="0">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="personne"  maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:simpleContent>
+                                        <xs:extension base="xs:string">
+                                            <xs:attribute name="personne" type="xs:string"/>
+                                        </xs:extension>
+                                    </xs:simpleContent>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="visibilité" type="xs:boolean" fixed="true"/>
+            </xs:sequence>
+            <xs:attribute name ="id" type="xs:string"/>
+        </xs:complexType>
+    </xs:element>
 
-        <xs:element name="citoyen">
-            <xs:complexType>
-                <xs:sequence>
-                    <xs:group ref="persongroup"/>
-                    <xs:element name="modification" type="xs:boolean" fixed="false"/>
-                </xs:sequence>
-                <xs:attribute name ="id" type="xs:string"/>
-            </xs:complexType>
-        </xs:element>
-
-        <xs:element name="medécin">
-            <xs:complexType>
-                <xs:sequence>
-                    <xs:group ref="persongroup"/>
-                    <xs:element name="modification" type="xs:boolean" fixed="true"/>
-                </xs:sequence>
-                <xs:attribute name ="id" type="xs:string"/>
-            </xs:complexType>
-        </xs:element>
+    <xs:element name="medécin">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="citoyen">
+                    <xs:complexType>
+                        <xs:attribute name="citoyen" type="xs:string"/>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="modification" type="xs:boolean" fixed="true"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
 
     <xs:element name="observatoire">
         <xs:complexType>
@@ -166,7 +178,7 @@
             <xs:element name='résultat'>
                 <xs:simpleType>
                     <xs:restriction base="xs:string">
-                        <xs:pattern value="Négative|Positive"/>
+                        <xs:pattern value="négative|positive"/>
                     </xs:restriction>
                 </xs:simpleType>
             </xs:element>
@@ -174,11 +186,11 @@
         <xs:attribute name ="id" type="xs:string"/>
     </xs:complexType>
 
-    <xs:element name="historique_social" type="hisType"/>
-    <xs:complexType name='hisType'>
+    <xs:element name="historique_social">
+    <xs:complexType>
         <xs:sequence>
             <xs:element name='date' type='xs:date'/>
-            <xs:element name='lieu' >
+            <xs:element name='lieu'>
                 <xs:simpleType>
                     <xs:restriction base="xs:string">
                         <xs:whiteSpace value="collapse"/>
@@ -189,6 +201,7 @@
         </xs:sequence>
         <xs:attribute name ="id" type="xs:string"/>
     </xs:complexType>
+    </xs:element>
 
     <xs:element name = "statut" type= "statutType"/>
     <xs:complexType name="statutType">
